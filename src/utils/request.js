@@ -1,5 +1,9 @@
 import { Promise } from 'es6-promise';
 import getWindow from 'utils/window';
+import contains from 'ramda/src/contains';
+import is from 'ramda/src/is';
+
+const isFunction = is(Function);
 
 const world = getWindow();
 let useFormDataHack = false;
@@ -20,7 +24,7 @@ const requestTypes = [
 const defaultOptions = {
   method: 'get',
   queryParams: {},
-  data: {},
+  dataParams: {},
   headers: {},
   flags: []
 };
@@ -39,17 +43,16 @@ function getBodyObject (result) {
 }
 
 function buildRequest (opts) {
-  let options = merge(defaultOptions, opts);
+  let options = Object.assign({}, defaultOptions, opts);
   if (!contains(options.method, requestTypes)) {
     throw new Error(`Unknown method: '${options.method}'. Must be one of: ${requestTypes.join(',')}`);
   }
 
   let req = superagent[options.method](options.url);
-  req.use(legacyIESupport);
-  if (keys(options.queryParams).length > 0) {
+  if (Object.keys(options.queryParams).length > 0) {
     req.query(options.queryParams);
   }
-  if (keys(options.dataParams).length > 0) {
+  if (Object.keys(options.dataParams).length > 0) {
     req.send(options.dataParams);
   }
   for (let headerName in options.headers) {
@@ -74,7 +77,8 @@ export default function request (options) {
       if (err) {
         reject(err, data, req);
       } else {
-        resolve(data, req);
+        const result = getBodyObject(data);
+        resolve(result, req);
       }
     });
   });

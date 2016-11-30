@@ -1,0 +1,76 @@
+.loader {
+  width: 200px;
+  height: 60px;
+  position: relative;
+  margin-left: 120px;
+}
+
+.bubble {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: black;
+  position: absolute;
+}
+
+.bubble1 {
+  animation: animate1 2.5s infinite;
+}
+
+.bubble2 {
+  animation: animate2 2.5s infinite;
+}
+
+.bubble3 {
+  animation: animate3 2.5s infinite;
+}
+
+.bubble4 {
+  animation: animate4 2.5s infinite;
+}
+
+.bubble5 {
+  animation: animate5 2.5s infinite;
+}
+
+.bubble6 {
+  animation: animate6 2.5s infinite;
+}
+
+@keyframes animate1 {
+  25%,
+  50% {
+    transform: translateX(-30px) scale(0.8)
+  }
+}
+
+@keyframes animate2 {
+  25%,
+  50% {
+    transform: translateX(30px) scale(0.8)
+  }
+}
+
+@keyframes animate3 {
+  25%, 50% {
+    transform: translateX(90px) scale(0.6)
+  }
+}
+
+@keyframes animate4 {
+  25%, 50% {
+    transform: translateX(-90px) scale(0.6)
+  }
+}
+
+@keyframes animate5 {
+  25%, 50% {
+    transform: translateX(135px) scale(0.4)
+  }
+}
+
+@keyframes animate6 {
+  25%, 50% {
+    transform: translateX(-135px) scale(0.4)
+  }
+}

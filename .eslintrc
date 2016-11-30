@@ -1,0 +1,47 @@
+{
+extends: "semistandard",
+ecmaFeatures: {
+modules: true
+},
+globals: {
+ENV: true,
+LOCAL: true
+},
+env: {
+browser: true,
+amd: true,
+es6: true,
+node: true
+},
+rules: {
+comma-dangle: 2,
+quotes: [
+2,
+"single"
+],
+no-undef: 2,
+global-strict: 0,
+no-extra-semi: 2,
+no-underscore-dangle: 0,
+no-console: 2,
+no-unused-vars: 2,
+no-trailing-spaces: [
+2,
+{
+skipBlankLines: true
+}
+],
+no-unreachable: 2,
+no-alert: 2,
+no-warning-comments: [
+1,
+{
+terms: [
+"todo"
+],
+location: "anywhere"
+}
+],
+space-before-function-paren: 0
+}
+}

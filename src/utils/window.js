@@ -1,1 +1,1 @@
-export default const getWindow = () => window;
+export default () => (typeof window !== 'undefined' ? window : {});
