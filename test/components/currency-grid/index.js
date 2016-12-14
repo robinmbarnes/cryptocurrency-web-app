@@ -33,11 +33,11 @@ describe('<CurrencyGrid/>', () => {
   ];
   const component = shallow(<CurrencyGrid entries={ testEntries } />);
   it('should have table with 4 child nodes', () => {
-    assert.lengthOf(component.find('table').get(0).props.children, 4);
+    assert.lengthOf(component.find('table tbody').get(0).props.children, 4);
   });
   it('entries should be in correct order', () => {
     const order = ['ltc', 'btc', 'ltcd', 'eth'];
-    const entries = component.find('table').get(0).props.children;
+    const entries = component.find('table tbody').get(0).props.children;
     const baseCurrencies = entries.map((entry) => entry.props.baseCurrency);
     assert.deepEqual(baseCurrencies, order);
   });

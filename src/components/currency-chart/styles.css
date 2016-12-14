@@ -1,0 +1,22 @@
+:local .currencyChart :global(.bar:nth-of-type(1)) {
+  fill: #af5858;
+}
+
+:local .currencyChart :global(.bar:nth-of-type(2)) {
+  fill: steelblue;
+}
+
+:local .currencyChart :global(.axis) {
+  font: 10px sans-serif;
+}
+
+:local .currencyChart :global(.axis path),
+:local .currencyChart :global(.axis line) {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}

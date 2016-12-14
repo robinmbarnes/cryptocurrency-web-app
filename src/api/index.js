@@ -1,6 +1,15 @@
 import { Promise } from 'es6-promise';
 import request from 'utils/request';
 
+export const targetCurrencies = [
+  'USD',
+  'GBP'
+];
+
+export const baseCurrencies = [
+  'BTC'
+];
+
 export function getConversionData(cryptoCurrencies, targetCurrency) {
   return Promise.all(
     cryptoCurrencies.map(

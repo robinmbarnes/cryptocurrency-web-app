@@ -3,13 +3,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import BubbleLoader from 'components/bubble-loader';
 import CenterBlock from 'components/center-block';
 import CurrencyGrid from 'components/currency-grid';
+import CurrencyChartContainer from 'components/currency-chart';
+import CurrencyConverter from 'components/currency-converter'
 
 export default class AppContainer extends React.Component {
   render() {
     const {
       selectedTabIndex,
       tabClicked,
-      conversionData
+      conversionData,
+      convertButtonClicked
     } = this.props;
     if (conversionData.isInitialLoadComplete) {
       return (
@@ -22,8 +25,14 @@ export default class AppContainer extends React.Component {
           <TabPanel>
             <CurrencyGrid entries={conversionData.conversions} />
           </TabPanel>
-          <TabPanel>Currency Converter Here</TabPanel>
-          <TabPanel>Graph Goes Here</TabPanel>
+          <TabPanel>
+            <CurrencyConverter convertButtonClicked={convertButtonClicked} />
+          </TabPanel>
+          <TabPanel>
+            <CurrencyChartContainer
+              conversionData={conversionData.conversions}
+            />
+          </TabPanel>
         </Tabs>
       );
     }

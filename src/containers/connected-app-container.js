@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AppContainer from 'containers/app-container';
-import { tabClicked } from 'actions/ui/tabs';
+import { tabClicked, convertButtonClicked } from 'actions/ui/tabs';
 import { fetchConversionDataStart } from 'actions/currency-data';
 
 function mapStateToProps ({ ui, conversionData }) {
@@ -13,7 +13,8 @@ function mapStateToProps ({ ui, conversionData }) {
 function mapDispatchToProps (dispatch) {
   return {
     tabClicked: (selectedTabIndex) => dispatch(tabClicked(selectedTabIndex)),
-    fetchConversionData: () => dispatch(fetchConversionDataStart())
+    fetchConversionData: () => dispatch(fetchConversionDataStart()),
+    convertButtonClicked: (...args) => dispatch(convertButtonClicked(...args))
   };
 }
 

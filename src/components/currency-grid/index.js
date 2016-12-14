@@ -9,7 +9,7 @@ export default function CurrencyGrid ({ entries }) {
     return 1;
   });
   const rows = sortedEntries.map(
-    (entry) => <CurrencyGridEntry { ...entry } />
+    (entry) => <CurrencyGridEntry key={entry.baseCurrency} { ...entry } />
   );
-  return <table>{ rows }</table>;
+  return <table><tbody>{ rows }</tbody></table>;
 }

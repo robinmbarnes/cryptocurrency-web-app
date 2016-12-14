@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test NODE_PATH=$NODE_PATH:./src ./node_modules/mocha/bin/mocha --compilers js:babel-core/register test --recursive"
   },
   "repository": {
     "type": "git",
@@ -43,9 +43,11 @@
     "babel-regenerator-runtime": "^6.5.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.26.0",
+    "css-modules-require-hook": "^4.0.5",
     "es6-promise": "^4.0.5",
     "postcss-loader": "^1.1.1",
     "ramda": "^0.22.1",
+    "react-bar-chart": "^0.1.1",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",
     "react-tabs": "^0.8.2",
